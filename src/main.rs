@@ -1,7 +1,7 @@
 use std::ops::Range;
 
 mod enums;
-use enums::FizzBuzzResult::FizzBuzzResult::*;
+use enums::fizz_buzz_result::FizzBuzzResult::*;
 
 fn write_range(r: Range<usize>) -> std::io::Result<()> {
     for i in r {

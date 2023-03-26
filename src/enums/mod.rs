@@ -1,1 +1,1 @@
-pub mod FizzBuzzResult;
+pub mod fizz_buzz_result;
