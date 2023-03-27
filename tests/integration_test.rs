@@ -1,6 +1,4 @@
 use fizzbuzzlib;
-use fizzbuzzlib::fizz_buzz_result;
-
 mod tests {
     use fizzbuzzlib::fizz_buzz_result::FizzBuzzResult;
 
