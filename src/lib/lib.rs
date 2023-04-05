@@ -19,7 +19,7 @@ T: PrimInt {
 
 pub fn write_range<W: Write>(mut w: W, r: Range<usize>) -> std::io::Result<()> {
     for i in r {
-        writeln!(&mut w, "{}", fizz_type(i))?;
+        writeln!(w, "{}", fizz_type(i))?;
     }
     Ok(())
 }
