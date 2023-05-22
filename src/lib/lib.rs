@@ -1,11 +1,13 @@
+use clap::Parser;
 use num_traits::PrimInt;
 pub mod fizz_buzz_result;
-use fizz_buzz_result::FizzBuzzResult::{*, self};
-use std::{ops::Range, io::Write};
+use fizz_buzz_result::FizzBuzzResult::{self, *};
+use std::{io::Write, ops::Range};
 
 pub fn fizz_type<T>(num: T) -> FizzBuzzResult<T>
 where
-T: PrimInt {
+    T: PrimInt,
+{
     let zero = T::zero();
     let three = T::from(3).expect("Failure converting 3");
     let five = T::from(5).expect("Failure converting 5");
@@ -13,7 +15,7 @@ T: PrimInt {
         (a, b) if a == zero && b == zero => FizzBuzz,
         (a, _) if a == zero => Fizz,
         (_, a) if a == zero => Buzz,
-        (_, _) => Number(num)
+        (_, _) => Number(num),
     }
 }
 
@@ -22,4 +24,10 @@ pub fn write_range<W: Write>(mut w: W, r: Range<usize>) -> std::io::Result<()> {
         writeln!(w, "{}", fizz_type(i))?;
     }
     Ok(())
+}
+
+#[derive(Parser)]
+pub struct Arguments {
+    #[clap(default_value = "100")]
+    pub end: usize,
 }
